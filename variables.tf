@@ -42,17 +42,17 @@ EOT
     location                                 = string
     name                                     = string
     resource_group_name                      = string
-    aad_auth_enabled                         = optional(bool, true)
-    connectivity_logs_enabled                = optional(bool, false)
-    http_request_logs_enabled                = optional(bool, false)
-    live_trace_enabled                       = optional(bool, false)
-    local_auth_enabled                       = optional(bool, true)
-    messaging_logs_enabled                   = optional(bool, false)
-    public_network_access_enabled            = optional(bool, true)
-    serverless_connection_timeout_in_seconds = optional(number, 30)
-    service_mode                             = optional(string, "Default")
+    aad_auth_enabled                         = optional(bool)   # Default: true
+    connectivity_logs_enabled                = optional(bool)   # Default: false
+    http_request_logs_enabled                = optional(bool)   # Default: false
+    live_trace_enabled                       = optional(bool)   # Default: false
+    local_auth_enabled                       = optional(bool)   # Default: true
+    messaging_logs_enabled                   = optional(bool)   # Default: false
+    public_network_access_enabled            = optional(bool)   # Default: true
+    serverless_connection_timeout_in_seconds = optional(number) # Default: 30
+    service_mode                             = optional(string) # Default: "Default"
     tags                                     = optional(map(string))
-    tls_client_cert_enabled                  = optional(bool, false)
+    tls_client_cert_enabled                  = optional(bool) # Default: false
     sku = object({
       capacity = number
       name     = string
@@ -65,10 +65,10 @@ EOT
       type         = string
     }))
     live_trace = optional(object({
-      connectivity_logs_enabled = optional(bool, true)
-      enabled                   = optional(bool, true)
-      http_request_logs_enabled = optional(bool, true)
-      messaging_logs_enabled    = optional(bool, true)
+      connectivity_logs_enabled = optional(bool) # Default: true
+      enabled                   = optional(bool) # Default: true
+      http_request_logs_enabled = optional(bool) # Default: true
+      messaging_logs_enabled    = optional(bool) # Default: true
     }))
     upstream_endpoint = optional(object({
       category_pattern          = list(string)
