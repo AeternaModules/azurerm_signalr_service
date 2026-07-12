@@ -22,7 +22,7 @@ resource "azurerm_signalr_service" "signalr_services" {
   }
 
   dynamic "cors" {
-    for_each = each.value.cors != null ? [each.value.cors] : []
+    for_each = each.value.cors != null ? each.value.cors : []
     content {
       allowed_origins = cors.value.allowed_origins
     }
@@ -47,7 +47,7 @@ resource "azurerm_signalr_service" "signalr_services" {
   }
 
   dynamic "upstream_endpoint" {
-    for_each = each.value.upstream_endpoint != null ? [each.value.upstream_endpoint] : []
+    for_each = each.value.upstream_endpoint != null ? each.value.upstream_endpoint : []
     content {
       category_pattern          = upstream_endpoint.value.category_pattern
       event_pattern             = upstream_endpoint.value.event_pattern

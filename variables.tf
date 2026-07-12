@@ -57,9 +57,9 @@ EOT
       capacity = number
       name     = string
     })
-    cors = optional(object({
+    cors = optional(list(object({
       allowed_origins = set(string)
-    }))
+    })))
     identity = optional(object({
       identity_ids = optional(set(string))
       type         = string
@@ -70,13 +70,13 @@ EOT
       http_request_logs_enabled = optional(bool) # Default: true
       messaging_logs_enabled    = optional(bool) # Default: true
     }))
-    upstream_endpoint = optional(object({
+    upstream_endpoint = optional(list(object({
       category_pattern          = list(string)
       event_pattern             = list(string)
       hub_pattern               = list(string)
       url_template              = string
       user_assigned_identity_id = optional(string)
-    }))
+    })))
   }))
 }
 
