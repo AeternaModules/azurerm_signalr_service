@@ -1,3 +1,7 @@
+output "signalr_services_id" {
+  description = "Map of id values across all signalr_services, keyed the same as var.signalr_services"
+  value       = { for k, v in azurerm_signalr_service.signalr_services : k => v.id }
+}
 output "signalr_services_aad_auth_enabled" {
   description = "Map of aad_auth_enabled values across all signalr_services, keyed the same as var.signalr_services"
   value       = { for k, v in azurerm_signalr_service.signalr_services : k => v.aad_auth_enabled }
