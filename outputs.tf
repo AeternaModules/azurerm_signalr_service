@@ -24,7 +24,7 @@ output "signalr_services_http_request_logs_enabled" {
 }
 output "signalr_services_identity" {
   description = "Map of identity values across all signalr_services, keyed the same as var.signalr_services"
-  value       = { for k, v in azurerm_signalr_service.signalr_services : k => v.identity if v.identity != null && length(v.identity) > 0 }
+  value       = { for k, v in azurerm_signalr_service.signalr_services : k => one(v.identity) if v.identity != null && length(v.identity) > 0 }
 }
 output "signalr_services_ip_address" {
   description = "Map of ip_address values across all signalr_services, keyed the same as var.signalr_services"
@@ -32,7 +32,7 @@ output "signalr_services_ip_address" {
 }
 output "signalr_services_live_trace" {
   description = "Map of live_trace values across all signalr_services, keyed the same as var.signalr_services"
-  value       = { for k, v in azurerm_signalr_service.signalr_services : k => v.live_trace if v.live_trace != null && length(v.live_trace) > 0 }
+  value       = { for k, v in azurerm_signalr_service.signalr_services : k => one(v.live_trace) if v.live_trace != null && length(v.live_trace) > 0 }
 }
 output "signalr_services_live_trace_enabled" {
   description = "Map of live_trace_enabled values across all signalr_services, keyed the same as var.signalr_services"
@@ -100,7 +100,7 @@ output "signalr_services_service_mode" {
 }
 output "signalr_services_sku" {
   description = "Map of sku values across all signalr_services, keyed the same as var.signalr_services"
-  value       = { for k, v in azurerm_signalr_service.signalr_services : k => v.sku if v.sku != null && length(v.sku) > 0 }
+  value       = { for k, v in azurerm_signalr_service.signalr_services : k => one(v.sku) if v.sku != null && length(v.sku) > 0 }
 }
 output "signalr_services_tags" {
   description = "Map of tags values across all signalr_services, keyed the same as var.signalr_services"
